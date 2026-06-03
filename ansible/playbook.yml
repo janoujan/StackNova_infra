@@ -18,7 +18,7 @@
         <body>
           <h1>StackNova</h1>
           <h2>Environnement : recette</h2>
-          <p>Déployé le : {{ deploy_date }}</p>
+          <p>Deploye le : {{ deploy_date }}</p>
         </body>
         </html>
         EOF

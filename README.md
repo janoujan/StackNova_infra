@@ -265,13 +265,13 @@ Le dossier `screens/` contient les preuves de fonctionnement suivantes :
   -----------------------------------------------------------------------
   Capture                             Description
   ----------------------------------- -----------------------------------
-  terraform_apply.png                 Résultat du terraform apply
+  screens/P2_capture_terraform_apply.png & screens/P2_capture_terraform_apply.png               Résultat du terraform apply
 
-  nginx_default.png                   Vérification du conteneur Nginx
+  screens/P2_capture_nginx.png                  Vérification du conteneur Nginx
 
-  ansible_execution.png               Exécution du playbook Ansible
+  screens/P3_capture_ansible_playbook.png      Exécution du playbook Ansible
 
-  stacknova_page.png                  Résultat final dans le navigateur
+  screens/stacknova_page.png                  Résultat final dans le navigateur
   -----------------------------------------------------------------------
 
 # Questions théoriques
