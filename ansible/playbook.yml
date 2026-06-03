@@ -1,0 +1,40 @@
+- name: Configuration StackNova
+  hosts: web
+  gather_facts: false
+
+  vars:
+    # Utilisation de la fonction native Ansible pour l'horodatage (plus propre et robuste)
+    deploy_date: "{{ now(fmt='%Y-%m-%d %H:%M:%S') }}"
+
+  tasks:
+    - name: Création de la page personnalisée
+      raw: |
+        cat << 'EOF' > /usr/share/nginx/html/index.html
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>StackNova - Recette</title>
+        </head>
+        <body>
+          <h1>StackNova</h1>
+          <h2>Environnement : recette</h2>
+          <p>Déployé le : {{ deploy_date }}</p>
+        </body>
+        </html>
+        EOF
+
+    - name: Vérification du processus principal du conteneur
+      raw: cat /proc/1/cmdline
+      register: nginx_check
+
+    - name: Affichage du processus principal
+      debug:
+        var: nginx_check.stdout
+
+    - name: Vérification du contenu de la page web
+      raw: cat /usr/share/nginx/html/index.html
+      register: page_check
+
+    - name: Affichage du contenu de la page
+      debug:
+        var: page_check.stdout
